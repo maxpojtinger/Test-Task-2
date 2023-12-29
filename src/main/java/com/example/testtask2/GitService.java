@@ -32,15 +32,15 @@ public class GitService {
             Iterable<RevCommit> commits = git.log().all().call();
 
             for (RevCommit commit : commits) {
-                gitLog.append("Commit: ").append(commit.getId().getName()).append("\n");
-                gitLog.append("Author: ").append(commit.getAuthorIdent().getName()).append("\n");
-                gitLog.append("Date: ").append(commit.getAuthorIdent().getWhen()).append("\n");
-                gitLog.append("Message: ").append(commit.getFullMessage()).append("\n\n");
+                gitLog.append("Commit: ").append(commit.getId().getName()).append("<br>");
+                gitLog.append("Author: ").append(commit.getAuthorIdent().getName()).append("<br>");
+                gitLog.append("Date: ").append(commit.getAuthorIdent().getWhen()).append("<br>");
+                gitLog.append("Message: ").append(commit.getFullMessage()).append("<br><br>");
             }
 
         } catch (GitAPIException | IOException e) {
             e.printStackTrace();
-            gitLog.append("Error retrieving Git log: ").append(e.getMessage());
+            gitLog.append("Error retrieving Git log: ").append(e.getMessage()).append("<br>").append("Maybe you didn't type in your directory correctly");
         }
 
         return gitLog.toString();
