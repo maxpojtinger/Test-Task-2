@@ -2,33 +2,33 @@ package com.example.testtask2;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/")
 public class HelloController {
 
-    private String storedText = ""; // Variable to store the entered text
+    // Variable to store the entered text
+    private static String storedText = "";
 
+    // Display the form with the stored text
     @GetMapping
     public String showForm(Model model) {
-        model.addAttribute("storedText", storedText); // Pass the stored text to the view
+        model.addAttribute("storedText", storedText);
         return "index";
     }
 
+    // Save the entered text and redirect to the form page
     @PostMapping("/saveText")
-    public String saveText(String text) {
-        storedText = text; // Save the entered text to the variable
-        return "redirect:/"; // Redirect to the form page
+    public String saveText(@RequestParam("text") String text) {
+        storedText = text;
+        return "redirect:/";
     }
 
+    // Set the Git repository path and redirect to the Git log page
     @PostMapping("/setRepositoryPath")
     public String setRepositoryPath(@RequestParam("repositoryPath") String repositoryPath) {
-        // Save the entered repository path to a variable or database
-        // For simplicity, let's store it in a static variable for now
+        // Save the entered repository path (for simplicity, stored in a static variable)
         GitService.setRepositoryPath(repositoryPath);
         return "redirect:/git-log";
     }
