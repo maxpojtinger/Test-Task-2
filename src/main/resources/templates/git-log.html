@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git Commit Log</title>
+</head>
+<body>
+
+<h1>Git Commit Log</h1>
+
+<ul>
+    <li th:each="commit : ${commitLog}">
+        <p th:text="${commit}"></p>
+    </li>
+</ul>
+
+</body>
+</html>
