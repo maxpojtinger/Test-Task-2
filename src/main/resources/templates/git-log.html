@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Git Commit Log</title>
     <style>
         ul {
             list-style-type: none;
             padding: 0;
         }
+        /* seemingly, every unordered list element usually starts with a bullet points and padding, I don't want that. Here I removed the default list-style */
     </style>
 </head>
 <body>
@@ -17,8 +16,12 @@
 
 <ul>
     <li th:each="commit : ${commitLog}">
+        <!-- Thymeleaf loop for every commit in the commitLog -->
         <p th:utext="${commit}"></p>
+        <!-- Thymeleaf expression for pasting commit text -->
+
     </li>
+    <!-- Utilizes Thymeleaf to iterate through each item in the commitLog list and generate a list item (<li>) for each commit. -->
 </ul>
 
 </body>

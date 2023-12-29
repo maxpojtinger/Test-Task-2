@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Set Repository Path</title>
 </head>
 <body>
 
-<h1>Greetings from Spring Boot!</h1>
+<h1>Test task 2 - Merge Queue for Kotlin Project</h1>
 
-<form th:action="@{/setRepositoryPath}" method="post">
-  <label for="repositoryPath">Enter Git Repository Path:</label>
-  <input type="text" id="repositoryPath" name="repositoryPath" />
+<form action="/setRepositoryPath" method="post">
+  <!-- Specifies the URL where the form data will be sent. In this case, it's "/setRepositoryPath, data will be submitted using HTTP POST method -->
+  <label>Enter Git Repository Path: <input type="text" name="repositoryPath"></label>
+  <!-- Creates label and input field for entering path, name is set to repositoryPath so that this value can be identified when form is submitted -->
   <button type="submit">Set Repository Path</button>
+  <!-- Creates submit button, when clicked: submits data to /setRepositoryPath -->
 </form>
+
 
 </body>
 </html>
